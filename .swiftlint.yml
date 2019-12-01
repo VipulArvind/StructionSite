@@ -1,0 +1,27 @@
+disabled_rules:
+- trailing_whitespace
+- todo
+- line_length
+- identifier_name
+- vertical_whitespace
+- type_name
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_cast: warning
+
+function_body_length:
+warning: 60
+error: 60
+
+type_body_length:
+- 400 # warning
+- 700 # error
+
+file_length:
+warning: 500
+error: 1200
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+- Pods
+- build

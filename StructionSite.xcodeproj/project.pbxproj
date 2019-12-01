@@ -13,6 +13,8 @@
 		819E001E2393F4CD00389898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 819E001C2393F4CD00389898 /* Main.storyboard */; };
 		819E00202393F4CD00389898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819E001F2393F4CD00389898 /* Assets.xcassets */; };
 		819E00232393F4CD00389898 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 819E00212393F4CD00389898 /* LaunchScreen.storyboard */; };
+		819E00482393F83200389898 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 819E00472393F83200389898 /* readme.txt */; };
+		819E004A2393F83B00389898 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 819E00492393F83B00389898 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		819E001F2393F4CD00389898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		819E00222393F4CD00389898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		819E00242393F4CD00389898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		819E00472393F83200389898 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		819E00492393F83B00389898 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 		819E000A2393F4CD00389898 = {
 			isa = PBXGroup;
 			children = (
+				819E00492393F83B00389898 /* .swiftlint.yml */,
+				819E00472393F83200389898 /* readme.txt */,
 				819E00152393F4CD00389898 /* StructionSite */,
 				819E00142393F4CD00389898 /* Products */,
 			);
@@ -77,6 +83,7 @@
 				819E000F2393F4CD00389898 /* Sources */,
 				819E00102393F4CD00389898 /* Frameworks */,
 				819E00112393F4CD00389898 /* Resources */,
+				819E004B2393F87C00389898 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -125,13 +132,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819E004A2393F83B00389898 /* .swiftlint.yml in Resources */,
 				819E00232393F4CD00389898 /* LaunchScreen.storyboard in Resources */,
 				819E00202393F4CD00389898 /* Assets.xcassets in Resources */,
+				819E00482393F83200389898 /* readme.txt in Resources */,
 				819E001E2393F4CD00389898 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		819E004B2393F87C00389898 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		819E000F2393F4CD00389898 /* Sources */ = {

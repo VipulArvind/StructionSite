@@ -21,44 +21,45 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-      
+          
+    initializeMap()
+    startDownloadingData()
+  }
+  
+  private func initializeMap() {
     //let latDelta = park.overlayTopLeftCoordinate.latitude - park.overlayBottomRightCoordinate.latitude
       
     // Think of a span as a tv size, measure from one corner to another
     //let span = MKCoordinateSpanMake(fabs(latDelta), 0.0)
     //let region = MKCoordinateRegionMake(park.midCoordinate, span)
     
-    let regionRadius: CLLocationDistance = 30000
+    let regionRadius: CLLocationDistance = 75000
     let coordinateRegion = MKCoordinateRegion(center: park.midCoordinate,
                                                   latitudinalMeters: regionRadius,
                                                   longitudinalMeters: regionRadius)
     mapView.setRegion(coordinateRegion, animated: true)
     addBoundary()
     mapView.register(ArtworkView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-    startDownloadingData()
+  }
     
-  }
-  
-  func addBoundary() {
-    mapView.addOverlay(MKPolygon(coordinates: park.boundary, count: park.boundary.count))
-  }
-  
   private func startDownloadingData() {
     campSitesManager.getCampSitesData { [weak self] success, errorMessage in
       if success == true {
-        //self?.collectionView.reloadData()
         self?.updateCampSites()
                 
-        print("campSitesManager.count = \(String(describing: self?.campSitesManager.count()))")
-        print("Dhakkan")
+        //print("campSitesManager.count = \(String(describing: self?.campSitesManager.count()))")
       } else {
         self?.showErrorMessage(error: errorMessage)
       }
       //self?.collectionView.refreshControl?.endRefreshing()
     }
   }
-    
-  func showErrorMessage (error: String) {
+  
+  private func addBoundary() {
+    mapView.addOverlay(MKPolygon(coordinates: park.boundary, count: park.boundary.count))
+  }
+  
+  private func showErrorMessage (error: String) {
     let alertController = UIAlertController(title: "Unable to retrieve Vehicle Data", message:
       error, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: "Ok", style: .default))
@@ -66,7 +67,7 @@ class ViewController: UIViewController {
     self.present(alertController, animated: true, completion: nil)
   }
   
-  func updateCampSites() {
+  private func updateCampSites() {
     mapView.addAnnotations(campSitesManager.campSitesList)
   }
 }

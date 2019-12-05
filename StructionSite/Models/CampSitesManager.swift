@@ -17,7 +17,7 @@ import UIKit
 final class CampSitesManager: NSObject {
   
   // MARK: - Vars
-  var campSitesList: [Campsite] = []
+  var campSitesList: [Marker] = []
   let fileManager: FileManager = FileManager.default
     
   // MARK: - overrides
@@ -57,7 +57,7 @@ final class CampSitesManager: NSObject {
     do {
       let jsonData = try Data(contentsOf: pathName)
       let decoder = JSONDecoder()
-      campSitesList = try decoder.decode([Campsite].self, from: jsonData)
+      campSitesList = try decoder.decode([Marker].self, from: jsonData)
     } catch {}
   }
   
@@ -67,18 +67,18 @@ final class CampSitesManager: NSObject {
     return campSitesList.count
   }
    
-  func campSite(atIndex: Int) -> Campsite? {
+  func campSite(atIndex: Int) -> Marker? {
     if campSitesList.count > atIndex {
       return campSitesList[atIndex]
     }
     return nil
   }
    
-  func allCampSites() -> [Campsite] {
+  func allCampSites() -> [Marker] {
     return campSitesList
   }
    
-  func first() -> Campsite? {
+  func first() -> Marker? {
     return campSitesList.first
   }
   

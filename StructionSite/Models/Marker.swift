@@ -15,23 +15,40 @@
 import UIKit
 import MapKit
 
-class Campsite: NSObject, Codable, MKAnnotation {
-//struct Campsite: Codable, MKAnnotation {
+enum MarkerType: Int, Codable {
+  case fixedLocations = 0
+  case campsites
+  case campers
   
+  func image() -> String {
+    switch self {
+    case .fixedLocations:
+      return "fixedLocations"
+    case .campsites:
+      return "campsites"
+    case .campers:
+      return "campers"
+    }
+  }
+}
+
+class Marker: NSObject, Codable, MKAnnotation {
   let title: String?
   let details: String
   let latitude: String
   let longitude: String
+  let type: MarkerType
   
   var coordinate: CLLocationCoordinate2D {
     return CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
   }
   
-  init(title: String, locationName: String, discipline: String, latitude: String, longitude: String) {
+  init(title: String, locationName: String, discipline: String, latitude: String, longitude: String, type: MarkerType) {
     self.title = title
     self.details = locationName
     self.latitude = latitude
     self.longitude = longitude
+    self.type = type
     super.init()
   }
   
@@ -44,6 +61,6 @@ class Campsite: NSObject, Codable, MKAnnotation {
   }
   
   var imageName: String? {
-    return "CampSite"
+    return type.image()
   }
 }

@@ -13,7 +13,7 @@ class CampSiteViews: MKMarkerAnnotationView {
 
   override var annotation: MKAnnotation? {
     willSet {
-      guard let campsite = newValue as? Campsite else { return }
+      guard let campsite = newValue as? Marker else { return }
       canShowCallout = true
       calloutOffset = CGPoint(x: -5, y: 5)
       rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
@@ -27,14 +27,13 @@ class CampSiteViews: MKMarkerAnnotationView {
       }
     }
   }
-
 }
 
 class ArtworkView: MKAnnotationView {
 
   override var annotation: MKAnnotation? {
     willSet {
-      guard let campsite = newValue as? Campsite else {return}
+      guard let campsite = newValue as? Marker else {return}
 
       canShowCallout = true
       calloutOffset = CGPoint(x: -5, y: 5)

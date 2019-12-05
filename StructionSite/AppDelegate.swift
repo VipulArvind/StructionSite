@@ -15,6 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    // the top bar
+    UINavigationBar.appearance().tintColor = Constants.whiteColor
+    
+    let attrsNavigationBarTitle = [
+      NSAttributedString.Key.foregroundColor: Constants.whiteColor,
+      NSAttributedString.Key.font: Constants.systemFontBoldSize12
+    ]
+    
+    UINavigationBar.appearance().titleTextAttributes = attrsNavigationBarTitle
+    
     return true
   }
 

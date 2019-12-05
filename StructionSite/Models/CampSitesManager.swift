@@ -14,7 +14,7 @@
 
 import UIKit
 
-final class CampSitesManager: NSObject {
+final class MarkerManager: NSObject {
   
   // MARK: - Vars
   var campSitesList: [Marker] = []

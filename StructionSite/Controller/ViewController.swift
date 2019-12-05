@@ -17,7 +17,7 @@ class ViewController: UIViewController {
   
   // MARK: - Variables
   var park = Park(filename: "YellowStone")
-  var campSitesManager: CampSitesManager = CampSitesManager()
+  var campSitesManager: MarkerManager = MarkerManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()

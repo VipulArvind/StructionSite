@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		811DA4AB2398E54A00CA8367 /* CampSitesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA4AA2398E54A00CA8367 /* CampSitesManager.swift */; };
 		811DA4AD2398E72200CA8367 /* CampSites.json in Resources */ = {isa = PBXBuildFile; fileRef = 811DA4AC2398E72200CA8367 /* CampSites.json */; };
-		811DA4AF2398E7EC00CA8367 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA4AE2398E7EC00CA8367 /* Marker.swift */; };
 		811DA4B123991F8C00CA8367 /* CampSiteViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA4B023991F8C00CA8367 /* CampSiteViews.swift */; };
 		811DA4B4239959E700CA8367 /* LocationsInYSPark.json in Resources */ = {isa = PBXBuildFile; fileRef = 811DA4B3239959E700CA8367 /* LocationsInYSPark.json */; };
+		811DA4B623995EA900CA8367 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA4B523995EA900CA8367 /* Marker.swift */; };
 		819E00172393F4CD00389898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E00162393F4CD00389898 /* AppDelegate.swift */; };
 		819E00192393F4CD00389898 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E00182393F4CD00389898 /* SceneDelegate.swift */; };
 		819E001B2393F4CD00389898 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E001A2393F4CD00389898 /* ViewController.swift */; };
@@ -28,9 +28,9 @@
 /* Begin PBXFileReference section */
 		811DA4AA2398E54A00CA8367 /* CampSitesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampSitesManager.swift; sourceTree = "<group>"; };
 		811DA4AC2398E72200CA8367 /* CampSites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CampSites.json; sourceTree = "<group>"; };
-		811DA4AE2398E7EC00CA8367 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		811DA4B023991F8C00CA8367 /* CampSiteViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampSiteViews.swift; sourceTree = "<group>"; };
 		811DA4B3239959E700CA8367 /* LocationsInYSPark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationsInYSPark.json; sourceTree = "<group>"; };
+		811DA4B523995EA900CA8367 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		819E00132393F4CD00389898 /* StructionSite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StructionSite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		819E00162393F4CD00389898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		819E00182393F4CD00389898 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 				811DA4AC2398E72200CA8367 /* CampSites.json */,
 				819E00542394228000389898 /* Park.swift */,
 				811DA4AA2398E54A00CA8367 /* CampSitesManager.swift */,
-				811DA4AE2398E7EC00CA8367 /* Marker.swift */,
+				811DA4B523995EA900CA8367 /* Marker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,13 +235,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				819E001B2393F4CD00389898 /* ViewController.swift in Sources */,
+				811DA4B623995EA900CA8367 /* Marker.swift in Sources */,
 				819E00172393F4CD00389898 /* AppDelegate.swift in Sources */,
 				811DA4B123991F8C00CA8367 /* CampSiteViews.swift in Sources */,
 				819E00192393F4CD00389898 /* SceneDelegate.swift in Sources */,
 				819E00552394228000389898 /* Park.swift in Sources */,
 				819E004D2394171A00389898 /* Constants.swift in Sources */,
 				811DA4AB2398E54A00CA8367 /* CampSitesManager.swift in Sources */,
-				811DA4AF2398E7EC00CA8367 /* Marker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

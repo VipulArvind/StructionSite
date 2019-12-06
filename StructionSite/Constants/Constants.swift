@@ -22,6 +22,7 @@ struct Constants {
     
   static let YS_Center_Lat: Double = 44.4280
   static let YS_Center_Long: Double = -110.4885
+  static let MAX_CAMPERS = 5
   
   // MARK: - Colors
   static let blackColor = UIColor.black

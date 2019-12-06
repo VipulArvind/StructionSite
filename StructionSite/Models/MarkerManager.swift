@@ -82,13 +82,14 @@ final class MarkerManager: NSObject {
   }
   
   func writeToFile(location: URL) -> Bool {
-      do {
-          let encoder = JSONEncoder()
-          encoder.outputFormatting = .prettyPrinted
-          let JsonData = try encoder.encode(markersList)
-          try JsonData.write(to: location)
-        return true
-      } catch {}
+    do {
+      let encoder = JSONEncoder()
+      encoder.outputFormatting = .prettyPrinted
+      let JsonData = try encoder.encode(markersList)
+      try JsonData.write(to: location)
+      return true
+    } catch {}
+    
     return false
   }
   
@@ -96,24 +97,5 @@ final class MarkerManager: NSObject {
    
   func count() -> Int {
     return markersList.count
-  }
-   
-  func marker(atIndex: Int) -> Marker? {
-    if markersList.count > atIndex {
-      return markersList[atIndex]
-    }
-    return nil
-  }
-   
-  func allMarkers() -> [Marker] {
-    return markersList
-  }
-   
-  func first() -> Marker? {
-    return markersList.first
-  }
-  
-  func resetMarkersList() {
-    markersList.removeAll()
   }
 }

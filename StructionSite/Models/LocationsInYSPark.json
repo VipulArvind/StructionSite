@@ -1,9 +1,60 @@
 [
-  {"title":"Old Faithful", "details":"Old Faithful", "latitude":"44.2737", "longitude":"-110.494159", "type": 0, "markerStatus": 2},
-  {"title":"Mammoth Hot Springs", "details":"Mammoth Hot Springs", "latitude":"44.5834", "longitude":"-110.420337", "type": 0, "markerStatus": 2},
-  {"title":"East Entrance", "details":"East Entrance", "latitude":"44.2918", "longitude":"-110.001380", "type": 0, "markerStatus": 2},
-  {"title":"North Entrance", "details":"North Entrance", "latitude":"45.0146", "longitude":"-110.423132", "type": 0, "markerStatus": 2},
-  {"title":"Northeast Entrance", "details":"Northeast Entrance", "latitude":"45.0012", "longitude":"-110.000462", "type": 0, "markerStatus": 2},
-  {"title":"South Entrance", "details":"South Entrance", "latitude":"44.0756", "longitude":"-110.395283", "type": 0, "markerStatus": 2},
-  {"title":"West Entrance", "details":"West Entrance", "latitude":"44.3930", "longitude":"-111.054987", "type": 0, "markerStatus": 2}
+  {
+    "title":"Old Faithful",
+    "details":"Old Faithful",
+    "latitude":"44.2737",
+    "longitude":"-110.494159",
+    "type": 0,
+    "phoneNumber": "",
+    "markerStatus": 2
+  },
+  {
+    "title":"Mammoth Hot Springs",
+    "details":"Mammoth Hot Springs",
+    "latitude":"44.5834",
+    "longitude":"-110.420337",
+    "type": 0,
+    "phoneNumber": "",
+    "markerStatus": 2},
+  {
+    "title":"East Entrance",
+    "details":"East Entrance",
+    "latitude":"44.2918",
+    "longitude":"-110.001380",
+    "type": 0,
+    "phoneNumber": "",
+    "markerStatus": 2},
+  {
+    "title":"North Entrance",
+    "details":"North Entrance",
+    "latitude":"45.0146",
+    "longitude":"-110.423132",
+    "type": 0,
+    "phoneNumber": "",
+    "markerStatus": 2},
+  {
+    "title":"Northeast Entrance",
+    "details":"Northeast Entrance",
+    "latitude":"45.0012",
+    "longitude":"-110.000462",
+    "type": 0,
+    "phoneNumber": "",
+    "markerStatus": 2},
+  {
+    "title":"South Entrance",
+    "details":"South Entrance",
+    "latitude":"44.0756",
+    "longitude":"-110.395283",
+    "type": 0,
+    "phoneNumber": "",
+    "markerStatus": 2},
+  {
+    "title":"West Entrance",
+    "details":"West Entrance",
+    "latitude":"44.3930",
+    "longitude":"-111.054987",
+    "type": 0,
+    "phoneNumber": "",
+    "markerStatus": 2    
+  }
 ]

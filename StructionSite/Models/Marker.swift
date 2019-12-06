@@ -55,18 +55,20 @@ class Marker: NSObject, Codable, MKAnnotation {
   let latitude: String
   let longitude: String
   let type: MarkerType
+  let phoneNumber: String
   var markerStatus: MarkerStatus
   
   var coordinate: CLLocationCoordinate2D {
     return CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
   }
   
-  init(title: String, locationName: String, discipline: String, latitude: String, longitude: String, type: MarkerType, status: MarkerStatus) {
+  init(title: String, details: String, latitude: String, longitude: String, type: MarkerType, phoneNumber: String, status: MarkerStatus) {
     self.title = title
-    self.details = locationName
+    self.details = details
     self.latitude = latitude
     self.longitude = longitude
     self.type = type
+    self.phoneNumber = phoneNumber
     self.markerStatus = status
     
     super.init()

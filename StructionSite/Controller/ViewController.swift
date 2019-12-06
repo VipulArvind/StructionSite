@@ -18,13 +18,17 @@ class ViewController: UIViewController {
   // MARK: - Variables
   var campSitesManager: MarkerManager = MarkerManager()
   var fixedLocationsManager: MarkerManager = MarkerManager()
+  var camperManager: CamperManager = CamperManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
           
+    camperManager.delegate = self
+    
     initializeMap()
     startDownloadingFixedLocationsData()
     startDownloadingCampSitesData()
+    startAddingCampers()
   }
   
   private func initializeMap() {
@@ -48,6 +52,10 @@ class ViewController: UIViewController {
         self?.showErrorMessage(error: errorMessage)
       }
     }
+  }
+  
+  private func startAddingCampers() {
+    camperManager.startCreatingRandomCampers()
   }
   
   private func startDownloadingCampSitesData() {
@@ -117,5 +125,10 @@ extension ViewController: MKMapViewDelegate {
         NSLog(@"dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
     }*/
   }
-    
+}
+
+extension ViewController: CamperHandler {
+  func handleCamperAdded (marker: Marker) {
+    self.mapView.addAnnotation(marker)
+  }
 }

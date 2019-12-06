@@ -54,9 +54,7 @@ class ViewController: UIViewController {
     campSitesManager.getMarkersData(fileName: "CampSites") { [weak self] success, errorMessage in
       if success == true {
         self?.updateCampSites()
-                
         print("campSitesManager.count = \(String(describing: self?.campSitesManager.count()))")
-        print("Dhakan")
       } else {
         self?.showErrorMessage(error: errorMessage)
       }
@@ -82,19 +80,16 @@ class ViewController: UIViewController {
 
 extension ViewController: MKMapViewDelegate {
   
-  func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
-               calloutAccessoryControlTapped control: UIControl) {
-    //guard let location = view.annotation as! Marker else { return }
-    let location = view.annotation as! Marker
+  func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    guard let location = view.annotation as? Marker else { return}
     confirmWithUserForStatusUpdate(marker: location)
   }
   
   func confirmWithUserForStatusUpdate(marker: Marker) {
-    let alertController = UIAlertController(title: "Alert title", message: "Message to display", preferredStyle: .alert)
+    let alertTitle = (marker.markerStatus == .open) ? "Mark the campsite close" : "Mark the campsite open"
+    let alertController = UIAlertController(title: alertTitle, message: "Are you sure?", preferredStyle: .alert)
     
-    let OKAction = UIAlertAction(title: "Yes", style: .default) { (action: UIAlertAction!) in
-      print("Yes button tapped")
-      
+    let OKAction = UIAlertAction(title: "Yes", style: .default) { (_: UIAlertAction!) in
       if self.campSitesManager.updateMarker(marker: marker) {
         self.mapView.removeAnnotation(marker)
         self.mapView.addAnnotation(marker)
@@ -103,9 +98,9 @@ extension ViewController: MKMapViewDelegate {
     
     alertController.addAction(OKAction)
     
-    let cancelAction = UIAlertAction(title: "No", style: .cancel) { (action: UIAlertAction!) in
-        print("No button tapped")
+    let cancelAction = UIAlertAction(title: "No", style: .cancel) { (_: UIAlertAction!) in
     }
+    
     alertController.addAction(cancelAction)
     
     self.present(alertController, animated: true, completion: nil)

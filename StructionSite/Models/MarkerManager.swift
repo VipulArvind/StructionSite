@@ -64,7 +64,11 @@ final class MarkerManager: NSObject {
   
   func updateMarker(marker: Marker) -> Bool {
     if let index = markersList.firstIndex(of: marker) {
-      markersList[index].details = "NIPUL"
+      if markersList[index].markerStatus == .open {
+        markersList[index].markerStatus = .closed
+      } else {
+          markersList[index].markerStatus = .open
+      }
       
       do {
         let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)

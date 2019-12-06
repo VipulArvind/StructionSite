@@ -32,23 +32,43 @@ enum MarkerType: Int, Codable {
   }
 }
 
+enum MarkerStatus: Int, Codable {
+  case open = 0
+  case closed
+  case NA
+  
+  func status() -> String {
+    switch self {
+    case .open:
+      return "Open"
+    case .closed:
+      return "Closed"
+    case .NA:
+      return "NA"
+    }
+  }
+}
+
 class Marker: NSObject, Codable, MKAnnotation {
   let title: String?
   var details: String
   let latitude: String
   let longitude: String
   let type: MarkerType
+  var markerStatus: MarkerStatus
   
   var coordinate: CLLocationCoordinate2D {
     return CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
   }
   
-  init(title: String, locationName: String, discipline: String, latitude: String, longitude: String, type: MarkerType) {
+  init(title: String, locationName: String, discipline: String, latitude: String, longitude: String, type: MarkerType, status: MarkerStatus) {
     self.title = title
     self.details = locationName
     self.latitude = latitude
     self.longitude = longitude
     self.type = type
+    self.markerStatus = status
+    
     super.init()
   }
   
@@ -62,5 +82,9 @@ class Marker: NSObject, Codable, MKAnnotation {
   
   var imageName: String? {
     return type.image()
+  }
+  
+  var statusString: String? {
+    return markerStatus.status()
   }
 }

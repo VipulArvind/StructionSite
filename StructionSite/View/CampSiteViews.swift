@@ -13,17 +13,23 @@ class CampSiteView: MKAnnotationView {
 
   override var annotation: MKAnnotation? {
     willSet {
-      guard let campsite = newValue as? Marker else {return}
+      guard let tempMarker = newValue as? Marker else {return}
+      
+      // call button only for campsites
+      if tempMarker.type == .campsites {
+        canShowCallout = true
+        calloutOffset = CGPoint(x: -5, y: 5)
+        let campSiteButton = UIButton(frame: CGRect(origin: CGPoint.zero,
+          size: CGSize(width: 30, height: 30)))
+        if tempMarker.markerStatus == .open {
+          campSiteButton.setBackgroundImage(UIImage(named: "close-icon"), for: UIControl.State())
+        } else {
+          campSiteButton.setBackgroundImage(UIImage(named: "open-icon"), for: UIControl.State())
+        }
+        rightCalloutAccessoryView = campSiteButton
+      }
 
-      canShowCallout = true
-      calloutOffset = CGPoint(x: -5, y: 5)
-      let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,
-        size: CGSize(width: 30, height: 30)))
-      mapsButton.setBackgroundImage(UIImage(named: "CloseCampsite-icon"), for: UIControl.State())
-      rightCalloutAccessoryView = mapsButton
-//      rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-
-      if let imageName = campsite.imageName {
+      if let imageName = tempMarker.imageName {
         image = UIImage(named: imageName)
       } else {
         image = nil
@@ -32,7 +38,14 @@ class CampSiteView: MKAnnotationView {
       let detailLabel = UILabel()
       detailLabel.numberOfLines = 0
       detailLabel.font = detailLabel.font.withSize(12)
-      detailLabel.text = campsite.subtitle
+      // if campsite then let's add status as well
+      if tempMarker.type == .campsites {
+        let detailString = (tempMarker.subtitle ?? "") + "\nStatus: " + (tempMarker.statusString ?? "N/A")
+        detailLabel.text = detailString
+      } else {
+        detailLabel.text = tempMarker.subtitle
+      }
+      
       detailCalloutAccessoryView = detailLabel
     }
   }

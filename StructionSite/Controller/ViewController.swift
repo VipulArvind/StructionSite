@@ -86,10 +86,29 @@ extension ViewController: MKMapViewDelegate {
                calloutAccessoryControlTapped control: UIControl) {
     //guard let location = view.annotation as! Marker else { return }
     let location = view.annotation as! Marker
-    if campSitesManager.updateMarker(marker: location) {
-      mapView.removeAnnotation(location)
-      mapView.addAnnotation(location)
+    confirmWithUserForStatusUpdate(marker: location)
+  }
+  
+  func confirmWithUserForStatusUpdate(marker: Marker) {
+    let alertController = UIAlertController(title: "Alert title", message: "Message to display", preferredStyle: .alert)
+    
+    let OKAction = UIAlertAction(title: "Yes", style: .default) { (action: UIAlertAction!) in
+      print("Yes button tapped")
+      
+      if self.campSitesManager.updateMarker(marker: marker) {
+        self.mapView.removeAnnotation(marker)
+        self.mapView.addAnnotation(marker)
+      }
     }
+    
+    alertController.addAction(OKAction)
+    
+    let cancelAction = UIAlertAction(title: "No", style: .cancel) { (action: UIAlertAction!) in
+        print("No button tapped")
+    }
+    alertController.addAction(cancelAction)
+    
+    self.present(alertController, animated: true, completion: nil)
   }
   
   func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState,

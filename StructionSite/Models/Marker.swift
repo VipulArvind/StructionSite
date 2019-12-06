@@ -1,5 +1,5 @@
 //
-//  CampSitesManager.swift
+//  Marker.swift
 //  StructionSite
 //
 //  Created by Vipul Arvind on 12/1/19.
@@ -7,9 +7,9 @@
 //
 
 //
-// CampSitesManager
-//      Class to implement the singleton for managing the CampSites data
-//
+// Marker
+//    Class to implement the common annotations (Pins) in map
+//    It handles all 3 (CampSites, Campers & FixedLocations) types of Pins
 //
 
 import UIKit

@@ -37,18 +37,19 @@ class CampSiteView: MKAnnotationView {
 
       let detailLabel = UILabel()
       detailLabel.numberOfLines = 0
-      detailLabel.font = detailLabel.font.withSize(12)
+      detailLabel.font = detailLabel.font.withSize(Constants.YS_FONT_SIZE_SMALL)
       
       var detailString = ""
       
-      if tempMarker.type == .campsites {
-        detailString = (tempMarker.subtitle ?? "") + "\nStatus: " + (tempMarker.statusString ?? "N/A")
-      } else if tempMarker.type == .campers {
+      switch tempMarker.type {
+      case .campers:
         detailString = (tempMarker.subtitle ?? "") + "\nPhone: " + (tempMarker.phoneNumber)
-      } else {
+      case .campsites:
+        detailString = (tempMarker.subtitle ?? "") + "\nStatus: " + (tempMarker.statusString ?? "N/A")
+      case .fixedLocations:
         detailString = tempMarker.subtitle ?? ""
       }
-      
+
       detailLabel.text = detailString
       
       detailCalloutAccessoryView = detailLabel

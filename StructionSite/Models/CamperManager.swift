@@ -8,12 +8,16 @@
 
 //
 // CamperManager
-//      Class for managing the Marker data
-//
+//    Class for managing Campers
+//    This is kept separate from Campsites + FixedLocations since we are suppose to generate them randomly (as oppose to reading from file(s))
+//    method startCreatingRandomCampers creates 1 camper every 5 seonds until the max limit (5) is reached
 //
 
 import UIKit
 import MapKit
+
+//
+// protocol to tell the delegation class that 1 new camper has been added
 
 protocol CamperHandler: class {
   func handleCamperAdded (marker: Marker)
@@ -21,50 +25,43 @@ protocol CamperHandler: class {
 
 final class CamperManager: NSObject {
   
+  // MARK: - Class level static data
+  static let camperNames = ["Camper 1", "Camper 2", "Camper 3", "Camper 4", "Camper 5"]
+  static let camperDescriptions = ["Jay's American Coach", "Steffi's Entegra", "Queen Fleetwood RV", "Tiny Holiday Rambler", "Jayco Camper"]
+  static let camperPhoneNumbers = ["703-121-1111", "512-242-2222", "916-363-3333", "403-484-4444", "202-505-5555"]
+  
   // MARK: - Vars
   var markersList: [Marker] = []
   weak var delegate: CamperHandler?
-  static let randomCamperDescriptions = ["Jay's American Coach", "Steffi's Entegra", "Queen Fleetwood RV", "Tiny Holiday Rambler", "Jayco Camper"]
-  static let randomCamperPhoneNumber = ["703-121-1111", "512-242-2222", "916-363-3333", "403-484-4444", "202-505-5555"]
-      
+  
   // MARK: - overrides
   override init() {
     super.init()
   }
   
   func startCreatingRandomCampers () {
-    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+    Timer.scheduledTimer(withTimeInterval: Constants.TIME_BETWEEN_CREATING_EACH_CAMPER, repeats: true) { timer in
       self.addRandomCamper()
 
       if self.count() >= Constants.MAX_CAMPERS {
-            timer.invalidate()
-        }
+        timer.invalidate()
+      }
     }
   }
   
   func addRandomCamper() {
     let iIndex = getIndexForNextCamper()
-    let camperName = self.generateCamperName(index: iIndex)
-    let camperDetails = self.generateCamperDetails(index: iIndex)
-    let location = generateRandomCoordinates(min: 20000, max: 20000)
-    let marker = Marker(title: camperName,
-                        details: CamperManager.randomCamperDescriptions[iIndex],
+    let location = generateRandomCoordinates(min: 25000, max: 25000)
+    let marker = Marker(title: CamperManager.camperNames[iIndex],
+                        details: CamperManager.camperDescriptions[iIndex],
                         latitude: String(location.latitude),
                         longitude: String(location.longitude),
                         type: .campers,
-                        phoneNumber: CamperManager.randomCamperPhoneNumber[iIndex],
+                        phoneNumber: CamperManager.camperPhoneNumbers[iIndex],
                         status: .NA)
     
     markersList.append(marker)
     delegate?.handleCamperAdded(marker: marker)
-  }
-  
-  func generateCamperName(index: Int) -> String {
-    return "Camper " + String(index)
-  }
-  
-  func generateCamperDetails(index: Int) -> String {
-    return CamperManager.randomCamperDescriptions[index] + "\nPhone: " + CamperManager.randomCamperPhoneNumber[index]
   }
   
   // random coordinates generator

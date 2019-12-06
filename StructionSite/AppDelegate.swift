@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let attrsNavigationBarTitle = [
       NSAttributedString.Key.foregroundColor: Constants.whiteColor,
-      NSAttributedString.Key.font: Constants.systemFontBoldSize12
+      NSAttributedString.Key.font: Constants.systemFontBoldSize18
     ]
     
     UINavigationBar.appearance().titleTextAttributes = attrsNavigationBarTitle

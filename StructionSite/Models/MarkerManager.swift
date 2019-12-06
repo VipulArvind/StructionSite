@@ -8,9 +8,11 @@
 
 //
 // MarkerManager
-//      Class for managing the Marker data
+//    Common Class for managing Campsites (read from CampSites.json) &
+//    Fixedlocations (e.g. Mammoth Hot Springs)  (read from LocationsInYSPark.json)
 //
 //
+
 
 import UIKit
 

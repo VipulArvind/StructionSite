@@ -9,10 +9,15 @@
 import UIKit
 import MapKit
 
+//
+// ViewController
+//    Main View Controller
+//    It hosts the Yellow Stone Map and inititates the logic for adding various markers
+//
+
 class ViewController: UIViewController {
 
   // MARK: - Outlets
-  
   @IBOutlet weak var mapView: MKMapView!
   
   // MARK: - Variables
@@ -42,12 +47,9 @@ class ViewController: UIViewController {
   }
   
   private func startDownloadingFixedLocationsData() {
-    fixedLocationsManager.getMarkersData(fileName: "LocationsInYSPark") { [weak self] success, errorMessage in
+    fixedLocationsManager.getMarkersData(fileName: Constants.JSON_FILE_FIXED_LOCATIONS) { [weak self] success, errorMessage in
       if success == true {
         self?.updateFixedLocations()
-                
-        print("campSitesManager.count = \(String(describing: self?.campSitesManager.count()))")
-        print("Dhakan")
       } else {
         self?.showErrorMessage(error: errorMessage)
       }
@@ -59,10 +61,9 @@ class ViewController: UIViewController {
   }
   
   private func startDownloadingCampSitesData() {
-    campSitesManager.getMarkersData(fileName: "CampSites") { [weak self] success, errorMessage in
+    campSitesManager.getMarkersData(fileName: Constants.JSON_FILE_CAMP_SITES) { [weak self] success, errorMessage in
       if success == true {
         self?.updateCampSites()
-        print("campSitesManager.count = \(String(describing: self?.campSitesManager.count()))")
       } else {
         self?.showErrorMessage(error: errorMessage)
       }
@@ -85,6 +86,10 @@ class ViewController: UIViewController {
     mapView.addAnnotations(fixedLocationsManager.markersList)
   }
 }
+
+//
+// extension for MKMapViewDelegate
+//
 
 extension ViewController: MKMapViewDelegate {
   
@@ -126,6 +131,10 @@ extension ViewController: MKMapViewDelegate {
     }*/
   }
 }
+
+//
+// extension to serve as delegate for CamperManager (method CamperHandler)
+//
 
 extension ViewController: CamperHandler {
   func handleCamperAdded (marker: Marker) {

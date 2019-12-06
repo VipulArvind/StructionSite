@@ -86,11 +86,10 @@
 			children = (
 				819E00562394228500389898 /* Models */,
 				811DA4B223991F9500CA8367 /* View */,
-				819E00532394224000389898 /* Park Information */,
 				819E004E2394172200389898 /* Constants */,
+				819E00572394229500389898 /* Controller */,
 				819E00162393F4CD00389898 /* AppDelegate.swift */,
 				819E00182393F4CD00389898 /* SceneDelegate.swift */,
-				819E00572394229500389898 /* Controller */,
 				819E001C2393F4CD00389898 /* Main.storyboard */,
 				819E001F2393F4CD00389898 /* Assets.xcassets */,
 				819E00212393F4CD00389898 /* LaunchScreen.storyboard */,
@@ -107,20 +106,13 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		819E00532394224000389898 /* Park Information */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Park Information";
-			sourceTree = "<group>";
-		};
 		819E00562394228500389898 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				811DA4B9239A4FDA00CA8367 /* CamperManager.swift */,
 				811DA4B3239959E700CA8367 /* LocationsInYSPark.json */,
-				811DA4B723995EEC00CA8367 /* MarkerManager.swift */,
 				811DA4AC2398E72200CA8367 /* CampSites.json */,
+				811DA4B9239A4FDA00CA8367 /* CamperManager.swift */,
+				811DA4B723995EEC00CA8367 /* MarkerManager.swift */,
 				811DA4B523995EA900CA8367 /* Marker.swift */,
 			);
 			path = Models;

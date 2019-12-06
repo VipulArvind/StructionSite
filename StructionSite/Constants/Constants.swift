@@ -23,6 +23,10 @@ struct Constants {
   static let YS_Center_Lat: Double = 44.4280
   static let YS_Center_Long: Double = -110.4885
   static let MAX_CAMPERS = 5
+  static let TIME_BETWEEN_CREATING_EACH_CAMPER: TimeInterval = 5
+  static let JSON_FILE_FIXED_LOCATIONS = "LocationsInYSPark"
+  static let JSON_FILE_CAMP_SITES = "CampSites"
+  
   
   // MARK: - Colors
   static let blackColor = UIColor.black
@@ -30,6 +34,7 @@ struct Constants {
   static let YSThemeColor = UIColor(red: 214.0/255.0, green: 169.0/255.0, blue: 10.0/255.0, alpha: 1.0)
   
   // MARK: - Fonts
-  static let systemFontSize12 = UIFont.systemFont(ofSize: 14.0)
-  static let systemFontBoldSize12 = UIFont.boldSystemFont(ofSize: 14.0)
+  static let YS_FONT_SIZE_SMALL: CGFloat = 12.0
+  static let systemFontSize18 = UIFont.systemFont(ofSize: 18.0)
+  static let systemFontBoldSize18 = UIFont.boldSystemFont(ofSize: 18.0)
 }

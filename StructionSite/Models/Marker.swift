@@ -23,18 +23,18 @@ enum MarkerType: Int, Codable {
   func image() -> String {
     switch self {
     case .fixedLocations:
-      return "fixedLocations"
+      return "FixedLocations"
     case .campsites:
-      return "campsites"
+      return "CampSite"
     case .campers:
-      return "campers"
+      return "Camper"
     }
   }
 }
 
 class Marker: NSObject, Codable, MKAnnotation {
   let title: String?
-  let details: String
+  var details: String
   let latitude: String
   let longitude: String
   let type: MarkerType

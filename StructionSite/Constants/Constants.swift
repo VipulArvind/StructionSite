@@ -20,6 +20,9 @@ typealias DataMgrCallback = (_ result: Data?, _ errorMessage: String) -> Void
 
 struct Constants {    
     
+  static let YS_Center_Lat: Double = 44.4280
+  static let YS_Center_Long: Double = -110.4885
+  
   // MARK: - Colors
   static let blackColor = UIColor.black
   static let whiteColor = UIColor.white

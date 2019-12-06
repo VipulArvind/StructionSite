@@ -9,27 +9,7 @@
 import Foundation
 import MapKit
 
-class CampSiteViews: MKMarkerAnnotationView {
-
-  override var annotation: MKAnnotation? {
-    willSet {
-      guard let campsite = newValue as? Marker else { return }
-      canShowCallout = true
-      calloutOffset = CGPoint(x: -5, y: 5)
-      rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-
-      markerTintColor = campsite.markerTintColor
-//      glyphText = String(artwork.discipline.first!)
-        if let imageName = campsite.imageName {
-          glyphImage = UIImage(named: imageName)
-        } else {
-          glyphImage = nil
-      }
-    }
-  }
-}
-
-class ArtworkView: MKAnnotationView {
+class CampSiteView: MKAnnotationView {
 
   override var annotation: MKAnnotation? {
     willSet {
@@ -39,7 +19,7 @@ class ArtworkView: MKAnnotationView {
       calloutOffset = CGPoint(x: -5, y: 5)
       let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,
         size: CGSize(width: 30, height: 30)))
-      mapsButton.setBackgroundImage(UIImage(named: "Maps-icon"), for: UIControl.State())
+      mapsButton.setBackgroundImage(UIImage(named: "CloseCampsite-icon"), for: UIControl.State())
       rightCalloutAccessoryView = mapsButton
 //      rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
 
@@ -56,5 +36,4 @@ class ArtworkView: MKAnnotationView {
       detailCalloutAccessoryView = detailLabel
     }
   }
-
 }

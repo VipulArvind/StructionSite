@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		811DA4AB2398E54A00CA8367 /* CampSitesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA4AA2398E54A00CA8367 /* CampSitesManager.swift */; };
 		811DA4AD2398E72200CA8367 /* CampSites.json in Resources */ = {isa = PBXBuildFile; fileRef = 811DA4AC2398E72200CA8367 /* CampSites.json */; };
 		811DA4B123991F8C00CA8367 /* CampSiteViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA4B023991F8C00CA8367 /* CampSiteViews.swift */; };
 		811DA4B4239959E700CA8367 /* LocationsInYSPark.json in Resources */ = {isa = PBXBuildFile; fileRef = 811DA4B3239959E700CA8367 /* LocationsInYSPark.json */; };
 		811DA4B623995EA900CA8367 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA4B523995EA900CA8367 /* Marker.swift */; };
+		811DA4B823995EEC00CA8367 /* MarkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA4B723995EEC00CA8367 /* MarkerManager.swift */; };
 		819E00172393F4CD00389898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E00162393F4CD00389898 /* AppDelegate.swift */; };
 		819E00192393F4CD00389898 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E00182393F4CD00389898 /* SceneDelegate.swift */; };
 		819E001B2393F4CD00389898 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E001A2393F4CD00389898 /* ViewController.swift */; };
@@ -21,16 +21,14 @@
 		819E00482393F83200389898 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 819E00472393F83200389898 /* readme.txt */; };
 		819E004A2393F83B00389898 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 819E00492393F83B00389898 /* .swiftlint.yml */; };
 		819E004D2394171A00389898 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E004C2394171A00389898 /* Constants.swift */; };
-		819E00522394221A00389898 /* YellowStone.plist in Resources */ = {isa = PBXBuildFile; fileRef = 819E00512394221A00389898 /* YellowStone.plist */; };
-		819E00552394228000389898 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E00542394228000389898 /* Park.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		811DA4AA2398E54A00CA8367 /* CampSitesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampSitesManager.swift; sourceTree = "<group>"; };
 		811DA4AC2398E72200CA8367 /* CampSites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CampSites.json; sourceTree = "<group>"; };
 		811DA4B023991F8C00CA8367 /* CampSiteViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampSiteViews.swift; sourceTree = "<group>"; };
 		811DA4B3239959E700CA8367 /* LocationsInYSPark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationsInYSPark.json; sourceTree = "<group>"; };
 		811DA4B523995EA900CA8367 /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		811DA4B723995EEC00CA8367 /* MarkerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerManager.swift; sourceTree = "<group>"; };
 		819E00132393F4CD00389898 /* StructionSite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StructionSite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		819E00162393F4CD00389898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		819E00182393F4CD00389898 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,8 +40,6 @@
 		819E00472393F83200389898 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		819E00492393F83B00389898 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		819E004C2394171A00389898 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		819E00512394221A00389898 /* YellowStone.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YellowStone.plist; sourceTree = "<group>"; };
-		819E00542394228000389898 /* Park.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +108,6 @@
 		819E00532394224000389898 /* Park Information */ = {
 			isa = PBXGroup;
 			children = (
-				819E00512394221A00389898 /* YellowStone.plist */,
 			);
 			path = "Park Information";
 			sourceTree = "<group>";
@@ -121,9 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				811DA4B3239959E700CA8367 /* LocationsInYSPark.json */,
+				811DA4B723995EEC00CA8367 /* MarkerManager.swift */,
 				811DA4AC2398E72200CA8367 /* CampSites.json */,
-				819E00542394228000389898 /* Park.swift */,
-				811DA4AA2398E54A00CA8367 /* CampSitesManager.swift */,
 				811DA4B523995EA900CA8367 /* Marker.swift */,
 			);
 			path = Models;
@@ -203,7 +197,6 @@
 				819E00202393F4CD00389898 /* Assets.xcassets in Resources */,
 				819E00482393F83200389898 /* readme.txt in Resources */,
 				819E001E2393F4CD00389898 /* Main.storyboard in Resources */,
-				819E00522394221A00389898 /* YellowStone.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,11 +230,10 @@
 				819E001B2393F4CD00389898 /* ViewController.swift in Sources */,
 				811DA4B623995EA900CA8367 /* Marker.swift in Sources */,
 				819E00172393F4CD00389898 /* AppDelegate.swift in Sources */,
+				811DA4B823995EEC00CA8367 /* MarkerManager.swift in Sources */,
 				811DA4B123991F8C00CA8367 /* CampSiteViews.swift in Sources */,
 				819E00192393F4CD00389898 /* SceneDelegate.swift in Sources */,
-				819E00552394228000389898 /* Park.swift in Sources */,
 				819E004D2394171A00389898 /* Constants.swift in Sources */,
-				811DA4AB2398E54A00CA8367 /* CampSitesManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

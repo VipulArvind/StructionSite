@@ -16,47 +16,51 @@ class ViewController: UIViewController {
   @IBOutlet weak var mapView: MKMapView!
   
   // MARK: - Variables
-  var park = Park(filename: "YellowStone")
   var campSitesManager: MarkerManager = MarkerManager()
+  var fixedLocationsManager: MarkerManager = MarkerManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
           
     initializeMap()
-    startDownloadingData()
+    startDownloadingFixedLocationsData()
+    startDownloadingCampSitesData()
   }
   
   private func initializeMap() {
-    //let latDelta = park.overlayTopLeftCoordinate.latitude - park.overlayBottomRightCoordinate.latitude
-      
-    // Think of a span as a tv size, measure from one corner to another
-    //let span = MKCoordinateSpanMake(fabs(latDelta), 0.0)
-    //let region = MKCoordinateRegionMake(park.midCoordinate, span)
-    
-    let regionRadius: CLLocationDistance = 75000
-    let coordinateRegion = MKCoordinateRegion(center: park.midCoordinate,
+    let midCoordinate = CLLocationCoordinate2DMake(Constants.YS_Center_Lat, Constants.YS_Center_Long)
+    let regionRadius: CLLocationDistance = 100000
+    let coordinateRegion = MKCoordinateRegion(center: midCoordinate,
                                                   latitudinalMeters: regionRadius,
                                                   longitudinalMeters: regionRadius)
     mapView.setRegion(coordinateRegion, animated: true)
-    addBoundary()
-    mapView.register(ArtworkView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    mapView.register(CampSiteView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
   }
-    
-  private func startDownloadingData() {
-    campSitesManager.getCampSitesData { [weak self] success, errorMessage in
+  
+  private func startDownloadingFixedLocationsData() {
+    fixedLocationsManager.getMarkersData(fileName: "LocationsInYSPark") { [weak self] success, errorMessage in
       if success == true {
-        self?.updateCampSites()
+        self?.updateFixedLocations()
                 
-        //print("campSitesManager.count = \(String(describing: self?.campSitesManager.count()))")
+        print("campSitesManager.count = \(String(describing: self?.campSitesManager.count()))")
+        print("Dhakan")
       } else {
         self?.showErrorMessage(error: errorMessage)
       }
-      //self?.collectionView.refreshControl?.endRefreshing()
     }
   }
   
-  private func addBoundary() {
-    mapView.addOverlay(MKPolygon(coordinates: park.boundary, count: park.boundary.count))
+  private func startDownloadingCampSitesData() {
+    campSitesManager.getMarkersData(fileName: "CampSites") { [weak self] success, errorMessage in
+      if success == true {
+        self?.updateCampSites()
+                
+        print("campSitesManager.count = \(String(describing: self?.campSitesManager.count()))")
+        print("Dhakan")
+      } else {
+        self?.showErrorMessage(error: errorMessage)
+      }
+    }
   }
   
   private func showErrorMessage (error: String) {
@@ -68,23 +72,36 @@ class ViewController: UIViewController {
   }
   
   private func updateCampSites() {
-    mapView.addAnnotations(campSitesManager.campSitesList)
+    mapView.addAnnotations(campSitesManager.markersList)
+  }
+  
+  private func updateFixedLocations() {
+    mapView.addAnnotations(fixedLocationsManager.markersList)
   }
 }
 
 extension ViewController: MKMapViewDelegate {
-  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-    
-    if overlay is MKPolyline {
-      let lineView = MKPolylineRenderer(overlay: overlay)
-      lineView.strokeColor = UIColor.green
-      return lineView
-    } else if overlay is MKPolygon {
-      let polygonView = MKPolygonRenderer(overlay: overlay)
-      polygonView.strokeColor = UIColor.magenta
-      return polygonView
+  
+  func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+               calloutAccessoryControlTapped control: UIControl) {
+    //guard let location = view.annotation as! Marker else { return }
+    let location = view.annotation as! Marker
+    if campSitesManager.updateMarker(marker: location) {
+      mapView.removeAnnotation(location)
+      mapView.addAnnotation(location)
     }
-      
-    return MKOverlayRenderer()
   }
+  
+  func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState,
+               fromOldState oldState: MKAnnotationView.DragState) {
+    
+    print("in")
+  
+   /* if (newState == MKAnnotationViewDragStateEnding)
+    {
+        CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
+        NSLog(@"dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
+    }*/
+  }
+    
 }

@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "CloseCampsite-icon.png",
+      "filename" : "open-icon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "CloseCampsite-icon@2x.png",
+      "filename" : "open-icon@2x.png",
       "scale" : "2x"
     },
     {

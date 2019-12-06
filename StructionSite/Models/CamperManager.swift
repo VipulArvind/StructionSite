@@ -51,7 +51,9 @@ final class CamperManager: NSObject {
   
   func addRandomCamper() {
     let iIndex = getIndexForNextCamper()
-    let location = generateRandomCoordinates(min: 25000, max: 25000)
+    
+    let location = generateRandomCoordinates(min: Constants.MIN_DIST_FOR_CAMPER_FROM_CENTER,
+                                             max: Constants.MAX_DIST_FOR_CAMPER_FROM_CENTER)
     let marker = Marker(title: CamperManager.camperNames[iIndex],
                         details: CamperManager.camperDescriptions[iIndex],
                         latitude: String(location.latitude),

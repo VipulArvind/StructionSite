@@ -26,7 +26,8 @@ struct Constants {
   static let TIME_BETWEEN_CREATING_EACH_CAMPER: TimeInterval = 5
   static let JSON_FILE_FIXED_LOCATIONS = "LocationsInYSPark"
   static let JSON_FILE_CAMP_SITES = "CampSites"
-  
+  static let MIN_DIST_FOR_CAMPER_FROM_CENTER: UInt32 = 10000
+  static let MAX_DIST_FOR_CAMPER_FROM_CENTER: UInt32 = 25000
   
   // MARK: - Colors
   static let blackColor = UIColor.black

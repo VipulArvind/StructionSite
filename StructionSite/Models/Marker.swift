@@ -83,6 +83,14 @@ class Marker: NSObject, Codable, MKAnnotation {
   }
   
   var imageName: String? {
+    if type == .campsites {
+      if markerStatus == .open {
+        return "CampSite"
+      } else {
+        return "Campsite-Closed"
+      }
+    }
+    
     return type.image()
   }
   

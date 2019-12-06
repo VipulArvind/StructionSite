@@ -1,5 +1,5 @@
 //
-//  CampSiteViews.swift
+//  MarkerView.swift
 //  StructionSite
 //
 //  Created by Vipul Arvind on 12/5/19.
@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class CampSiteView: MKAnnotationView {
+class MarkerView: MKAnnotationView {
 
   override var annotation: MKAnnotation? {
     willSet {

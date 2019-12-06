@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     startDownloadingFixedLocationsData()
     startDownloadingCampSitesData()
     startAddingCampers()
+    updateTitle()
   }
   
   private func initializeMap() {
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
                                                   latitudinalMeters: regionRadius,
                                                   longitudinalMeters: regionRadius)
     mapView.setRegion(coordinateRegion, animated: true)
-    mapView.register(CampSiteView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    mapView.register(MarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
   }
   
   private func startDownloadingFixedLocationsData() {
@@ -84,6 +85,10 @@ class ViewController: UIViewController {
   
   private func updateFixedLocations() {
     mapView.addAnnotations(fixedLocationsManager.markersList)
+  }
+  
+  private func updateTitle() {
+    self.title = "YellowStone (" + String(campSitesManager.count()) + " Campsites, " + String(camperManager.count()) + " Campers)"
   }
 }
 
@@ -139,5 +144,6 @@ extension ViewController: MKMapViewDelegate {
 extension ViewController: CamperHandler {
   func handleCamperAdded (marker: Marker) {
     self.mapView.addAnnotation(marker)
+    self.updateTitle()
   }
 }

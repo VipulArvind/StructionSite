@@ -16,7 +16,6 @@ import UIKit
 //
 
 typealias APICallback = (_ success: Bool, _ errorMessage: String) -> Void
-typealias DataMgrCallback = (_ result: Data?, _ errorMessage: String) -> Void
 
 struct Constants {    
     
@@ -31,7 +30,6 @@ struct Constants {
   static let MIN_PRESS_DURTION_LONG_PRESS = 1.5
   
   // MARK: - Colors
-  static let blackColor = UIColor.black
   static let whiteColor = UIColor.white
   static let YSThemeColor = UIColor(red: 214.0/255.0, green: 169.0/255.0, blue: 10.0/255.0, alpha: 1.0)
   

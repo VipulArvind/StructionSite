@@ -6,6 +6,12 @@
 //  Copyright © 2019 Vipul Arvind. All rights reserved.
 //
 
+//
+// MarkerView
+//    Class to implement the MKAnnotationView for Pins in map
+//    It handles all 3 (CampSites, Campers & FixedLocations) types of Pins
+//
+
 import Foundation
 import MapKit
 
@@ -52,7 +58,6 @@ class MarkerView: MKAnnotationView {
       }
 
       detailLabel.text = detailString
-      
       detailCalloutAccessoryView = detailLabel
     }
   }

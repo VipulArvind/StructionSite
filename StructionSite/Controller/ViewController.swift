@@ -35,24 +35,7 @@ class ViewController: UIViewController {
     startDownloadingCampSitesData()
     startAddingCampers()
     updateTitle()
-    
-    // long gesture
-    let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
-    longPressGesture.minimumPressDuration = Constants.MIN_PRESS_DURTION_LONG_PRESS
-    self.mapView.addGestureRecognizer(longPressGesture)
-  }
-  
-  @objc func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
-    let point = gesture.location(in: self.mapView)
-    let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
-    
-    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    //let addCampSiteVC = storyBoard.instantiateViewController(withIdentifier: "AddCampSiteVC") as! AddCampSiteVC
-    guard let addCampSiteVC = storyBoard.instantiateViewController(withIdentifier: "AddCampSiteVC") as? AddCampSiteVC else {return}
-    addCampSiteVC.delegate = self
-    addCampSiteVC.location = coordinate
-    
-    self.present(addCampSiteVC, animated: true, completion: nil)
+    addLongPressGetureToMap()
   }
   
   private func initializeMap() {
@@ -70,7 +53,7 @@ class ViewController: UIViewController {
       if success == true {
         self?.updateFixedLocations()
       } else {
-        self?.showErrorMessage(error: errorMessage)
+        self?.showMessage(message: errorMessage)
       }
     }
   }
@@ -84,14 +67,14 @@ class ViewController: UIViewController {
       if success == true {
         self?.updateCampSites()
       } else {
-        self?.showErrorMessage(error: errorMessage)
+        self?.showMessage(message: errorMessage)
       }
     }
   }
   
-  private func showErrorMessage (error: String) {
-    let alertController = UIAlertController(title: "Unable to retrieve Vehicle Data", message:
-      error, preferredStyle: .alert)
+  private func showMessage (message: String) {
+    let alertController = UIAlertController(title: "YellowStone", message:
+      message, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: "Ok", style: .default))
       
     self.present(alertController, animated: true, completion: nil)
@@ -107,6 +90,25 @@ class ViewController: UIViewController {
   
   private func updateTitle() {
     self.title = "YellowStone (" + String(campSitesManager.count()) + " Campsites, " + String(camperManager.count()) + " Campers)"
+  }
+  
+  func addLongPressGetureToMap() {
+    // long gesture
+    let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
+    longPressGesture.minimumPressDuration = Constants.MIN_PRESS_DURTION_LONG_PRESS
+    self.mapView.addGestureRecognizer(longPressGesture)
+  }
+  
+  @objc func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
+    let point = gesture.location(in: self.mapView)
+    let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
+    
+    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    guard let addCampSiteVC = storyBoard.instantiateViewController(withIdentifier: "AddCampSiteVC") as? AddCampSiteVC else {return}
+    addCampSiteVC.delegate = self
+    addCampSiteVC.location = coordinate
+    
+    self.present(addCampSiteVC, animated: true, completion: nil)
   }
 }
 
@@ -166,6 +168,9 @@ extension ViewController: AddNewCampSiteHandler {
     if campSitesManager.addMarker(marker: marker) {
       self.mapView.addAnnotation(marker)
       self.updateTitle()
+      self.dismiss(animated: true, completion: nil)
+      showMessage(message: "Campsite " + name + " added successfully")
+      return
     }
     
     self.dismiss(animated: true, completion: nil)

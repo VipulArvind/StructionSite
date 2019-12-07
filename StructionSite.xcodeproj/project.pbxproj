@@ -113,8 +113,8 @@
 			children = (
 				811DA4B3239959E700CA8367 /* LocationsInYSPark.json */,
 				811DA4AC2398E72200CA8367 /* CampSites.json */,
-				811DA4B9239A4FDA00CA8367 /* CamperManager.swift */,
 				811DA4B723995EEC00CA8367 /* MarkerManager.swift */,
+				811DA4B9239A4FDA00CA8367 /* CamperManager.swift */,
 				811DA4B523995EA900CA8367 /* Marker.swift */,
 			);
 			path = Models;

@@ -9,10 +9,9 @@
 //
 // MarkerManager
 //    Common Class for managing Campsites (read from CampSites.json) &
-//    Fixedlocations (e.g. Mammoth Hot Springs)  (read from LocationsInYSPark.json)
+//                              Fixedlocations (e.g. Mammoth Hot Springs)  (read from LocationsInYSPark.json)
 //
 //
-
 
 import UIKit
 
@@ -83,18 +82,6 @@ final class MarkerManager: NSObject {
     return false
   }
   
-  func writeToFile(location: URL) -> Bool {
-    do {
-      let encoder = JSONEncoder()
-      encoder.outputFormatting = .prettyPrinted
-      let JsonData = try encoder.encode(markersList)
-      try JsonData.write(to: location)
-      return true
-    } catch {}
-    
-    return false
-  }
-  
   func addMarker(marker: Marker) -> Bool {
     markersList.append(marker)
     
@@ -108,6 +95,19 @@ final class MarkerManager: NSObject {
     
     return false
   }
+  
+  func writeToFile(location: URL) -> Bool {
+    do {
+      let encoder = JSONEncoder()
+      encoder.outputFormatting = .prettyPrinted
+      let JsonData = try encoder.encode(markersList)
+      try JsonData.write(to: location)
+      return true
+    } catch {}
+    
+    return false
+  }
+  
   // MARK: - Public Methods
    
   func count() -> Int {

@@ -73,7 +73,7 @@ final class CamperManager: NSObject {
   // input : min and max distance (meters) from center
   // output : random location
   
-  func generateRandomCoordinates(min: UInt32, max: UInt32) -> CLLocationCoordinate2D {
+  private func generateRandomCoordinates(min: UInt32, max: UInt32) -> CLLocationCoordinate2D {
     //Get the Current Location's longitude and latitude
     let currentLong = Constants.YS_Center_Long
     let currentLat = Constants.YS_Center_Lat
@@ -106,7 +106,7 @@ final class CamperManager: NSObject {
     }
   }
   
-  func getIndexForNextCamper() -> Int {
+  private func getIndexForNextCamper() -> Int {
     return self.count()
   }
     

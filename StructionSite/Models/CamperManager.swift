@@ -18,6 +18,7 @@ import MapKit
 
 //
 // protocol to tell the delegation class that 1 new camper has been added
+//
 
 protocol CamperHandler: class {
   func handleCamperAdded (marker: Marker)

@@ -95,6 +95,19 @@ final class MarkerManager: NSObject {
     return false
   }
   
+  func addMarker(marker: Marker) -> Bool {
+    markersList.append(marker)
+    
+    do {
+      let documentDirectory = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+      let fileURL = documentDirectory.appendingPathComponent(fileName + ".json")
+      return writeToFile(location: fileURL)
+    } catch {
+      print(error)
+    }
+    
+    return false
+  }
   // MARK: - Public Methods
    
   func count() -> Int {

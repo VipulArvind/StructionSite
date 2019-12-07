@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81129E62239B6B6E00291B35 /* AddCampSiteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81129E61239B6B6D00291B35 /* AddCampSiteVC.swift */; };
 		811DA4AD2398E72200CA8367 /* CampSites.json in Resources */ = {isa = PBXBuildFile; fileRef = 811DA4AC2398E72200CA8367 /* CampSites.json */; };
 		811DA4B123991F8C00CA8367 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA4B023991F8C00CA8367 /* MarkerView.swift */; };
 		811DA4B4239959E700CA8367 /* LocationsInYSPark.json in Resources */ = {isa = PBXBuildFile; fileRef = 811DA4B3239959E700CA8367 /* LocationsInYSPark.json */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81129E61239B6B6D00291B35 /* AddCampSiteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCampSiteVC.swift; sourceTree = "<group>"; };
 		811DA4AC2398E72200CA8367 /* CampSites.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CampSites.json; sourceTree = "<group>"; };
 		811DA4B023991F8C00CA8367 /* MarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		811DA4B3239959E700CA8367 /* LocationsInYSPark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LocationsInYSPark.json; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				819E001A2393F4CD00389898 /* ViewController.swift */,
+				81129E61239B6B6D00291B35 /* AddCampSiteVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				819E00172393F4CD00389898 /* AppDelegate.swift in Sources */,
 				811DA4B823995EEC00CA8367 /* MarkerManager.swift in Sources */,
 				811DA4B123991F8C00CA8367 /* MarkerView.swift in Sources */,
+				81129E62239B6B6E00291B35 /* AddCampSiteVC.swift in Sources */,
 				819E00192393F4CD00389898 /* SceneDelegate.swift in Sources */,
 				819E004D2394171A00389898 /* Constants.swift in Sources */,
 			);

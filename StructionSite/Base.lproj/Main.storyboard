@@ -17,6 +17,7 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="k4d-8a-6i7">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="SoF-ed-xSV"/>
                                 </connections>
@@ -58,6 +59,98 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Abi-L2-SBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--AddCampSiteVC-->
+        <scene sceneID="sWU-Kr-jWf">
+            <objects>
+                <viewController storyboardIdentifier="AddCampSiteVC" id="i2g-OI-OsA" userLabel="AddCampSiteVC" customClass="AddCampSiteVC" customModule="StructionSite" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dBX-sV-bLZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a new Campsite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTs-QL-fTI">
+                                <rect key="frame" x="124" y="84" width="166.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.83921568627450982" green="0.66274509803921566" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="8zr-sH-m4I">
+                                <rect key="frame" x="20" y="154.5" width="374" height="77"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="T4b-hJ-cMg">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K1T-3O-cZC">
+                                                <rect key="frame" x="0.0" y="0.0" width="45" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZQK-az-Sds">
+                                                <rect key="frame" x="113" y="0.0" width="261" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="TrG-Ju-NaQ">
+                                        <rect key="frame" x="0.0" y="43" width="374" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJH-ZT-eST">
+                                                <rect key="frame" x="0.0" y="0.0" width="52.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="slL-Cj-REr">
+                                                <rect key="frame" x="112.5" y="0.0" width="261.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="93" translatesAutoresizingMaskIntoConstraints="NO" id="hF4-nS-kOa">
+                                <rect key="frame" x="121.5" y="301.5" width="171" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vb5-YV-wOe">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Ok"/>
+                                        <connections>
+                                            <action selector="okButtonTapped:" destination="i2g-OI-OsA" eventType="touchUpInside" id="b36-OJ-ssT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzY-Iw-yst">
+                                        <rect key="frame" x="123" y="0.0" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="i2g-OI-OsA" eventType="touchUpInside" id="AdD-Tk-VBR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nrf-7c-GJQ" firstAttribute="trailing" secondItem="8zr-sH-m4I" secondAttribute="trailing" constant="20" id="1YK-6Z-MmS"/>
+                            <constraint firstItem="8zr-sH-m4I" firstAttribute="top" secondItem="RTs-QL-fTI" secondAttribute="bottom" constant="50" id="2K4-ky-g9U"/>
+                            <constraint firstItem="8zr-sH-m4I" firstAttribute="leading" secondItem="nrf-7c-GJQ" secondAttribute="leading" constant="20" id="9nq-cv-omE"/>
+                            <constraint firstItem="hF4-nS-kOa" firstAttribute="top" secondItem="8zr-sH-m4I" secondAttribute="bottom" constant="70" id="FYc-Sq-lDV"/>
+                            <constraint firstItem="hF4-nS-kOa" firstAttribute="centerX" secondItem="nrf-7c-GJQ" secondAttribute="centerX" id="lhM-pH-aZC"/>
+                            <constraint firstItem="RTs-QL-fTI" firstAttribute="centerX" secondItem="nrf-7c-GJQ" secondAttribute="centerX" id="pGR-Xh-bLH"/>
+                            <constraint firstItem="RTs-QL-fTI" firstAttribute="top" secondItem="nrf-7c-GJQ" secondAttribute="top" constant="40" id="roK-AS-rAg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nrf-7c-GJQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtCampSiteDetails" destination="slL-Cj-REr" id="211-1C-npN"/>
+                        <outlet property="txtCampSiteName" destination="ZQK-az-Sds" id="oHQ-q7-QDl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mFZ-pF-1zh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2019" y="138"/>
         </scene>
     </scenes>
 </document>

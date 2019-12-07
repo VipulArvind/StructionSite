@@ -35,6 +35,24 @@ class ViewController: UIViewController {
     startDownloadingCampSitesData()
     startAddingCampers()
     updateTitle()
+    
+    // long gesture
+    let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
+    longPressGesture.minimumPressDuration = 1.5
+    self.mapView.addGestureRecognizer(longPressGesture)
+  }
+  
+  @objc func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
+    let point = gesture.location(in: self.mapView)
+    let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
+    
+    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    //let addCampSiteVC = storyBoard.instantiateViewController(withIdentifier: "AddCampSiteVC") as! AddCampSiteVC
+    guard let addCampSiteVC = storyBoard.instantiateViewController(withIdentifier: "AddCampSiteVC") as? AddCampSiteVC else {return}
+    addCampSiteVC.delegate = self
+    addCampSiteVC.location = coordinate
+    
+    self.present(addCampSiteVC, animated: true, completion: nil)
   }
   
   private func initializeMap() {
@@ -123,25 +141,6 @@ extension ViewController: MKMapViewDelegate {
     
     self.present(alertController, animated: true, completion: nil)
   }
-  
-  func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState,
-               fromOldState oldState: MKAnnotationView.DragState) {
-    
-    print("in")
-    switch newState {
-    case .starting:
-        view.dragState = .dragging
-    case .ending, .canceling:
-        view.dragState = .none
-    default: break
-    }
-  
-   /* if (newState == MKAnnotationViewDragStateEnding)
-    {
-        CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
-        NSLog(@"dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
-    }*/
-  }
 }
 
 //
@@ -152,5 +151,23 @@ extension ViewController: CamperHandler {
   func handleCamperAdded (marker: Marker) {
     self.mapView.addAnnotation(marker)
     self.updateTitle()
+  }
+}
+
+extension ViewController: AddNewCampSiteHandler {
+  func handleNewCampSiteAddRequested (name: String, details: String, location: CLLocationCoordinate2D) {
+    let marker = Marker(title: name,
+                        details: details,
+                        latitude: String(location.latitude),
+                        longitude: String(location.longitude),
+                        type: .campsites,
+                        phoneNumber: "",
+                        status: .open)
+    if campSitesManager.addMarker(marker: marker) {
+      self.mapView.addAnnotation(marker)
+      self.updateTitle()
+    }
+    
+    self.dismiss(animated: true, completion: nil)
   }
 }

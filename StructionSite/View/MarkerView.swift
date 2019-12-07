@@ -27,6 +27,7 @@ class MarkerView: MKAnnotationView {
           campSiteButton.setBackgroundImage(UIImage(named: "open-icon"), for: UIControl.State())
         }
         rightCalloutAccessoryView = campSiteButton
+        isDraggable = true
       }
 
       if let imageName = tempMarker.imageName {

@@ -128,6 +128,13 @@ extension ViewController: MKMapViewDelegate {
                fromOldState oldState: MKAnnotationView.DragState) {
     
     print("in")
+    switch newState {
+    case .starting:
+        view.dragState = .dragging
+    case .ending, .canceling:
+        view.dragState = .none
+    default: break
+    }
   
    /* if (newState == MKAnnotationViewDragStateEnding)
     {

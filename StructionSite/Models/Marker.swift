@@ -52,8 +52,8 @@ enum MarkerStatus: Int, Codable {
 class Marker: NSObject, Codable, MKAnnotation {
   let title: String?
   var details: String
-  let latitude: String
-  let longitude: String
+  var latitude: String
+  var longitude: String
   let type: MarkerType
   let phoneNumber: String
   var markerStatus: MarkerStatus

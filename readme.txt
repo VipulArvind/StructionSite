@@ -18,3 +18,4 @@ Salient features used in this app
 
 - 8.    List of items from Extra Credit Sections
 - 8.1       Ability to mark a campsite close (or open). This can be done via tapping a campsite then tapping the callout accessory button on right.
+- 8.2       Ability to add a new Campsite. This can be done via long press (tap & hold) on map for more than 1.5 seconds.

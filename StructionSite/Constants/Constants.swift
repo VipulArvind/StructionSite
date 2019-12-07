@@ -28,6 +28,7 @@ struct Constants {
   static let JSON_FILE_CAMP_SITES = "CampSites"
   static let MIN_DIST_FOR_CAMPER_FROM_CENTER: UInt32 = 10000
   static let MAX_DIST_FOR_CAMPER_FROM_CENTER: UInt32 = 25000
+  static let MIN_PRESS_DURTION_LONG_PRESS = 1.5
   
   // MARK: - Colors
   static let blackColor = UIColor.black

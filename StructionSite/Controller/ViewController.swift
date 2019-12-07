@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     // long gesture
     let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
-    longPressGesture.minimumPressDuration = 1.5
+    longPressGesture.minimumPressDuration = Constants.MIN_PRESS_DURTION_LONG_PRESS
     self.mapView.addGestureRecognizer(longPressGesture)
   }
   
